@@ -7,25 +7,43 @@
   </div>
 </div>
 
-<p><%= @cocktail.instruction %></p>
+<div class="wrapper-cards">
+  <div class="container">
 
-<ul>
-<% @cocktail.doses.each do |dose| %>
-<li>
-<%= dose.ingredient.name %>
-<% if dose.description != "\n" %>
--
-<% end %>
-<%= dose.description %>
-<%= link_to dose_path(dose), method: "delete" do %>
-  <i class="fas fa-trash-alt"></i>
-<% end %>
-</li>
-<% end %>
-</ul>
+    <div class="cocktail-info">
+
+      <div>
+        <p><%= @cocktail.instruction %></p>
+        <ul>
+          <% @cocktail.doses.each do |dose| %>
+          <li>
+            <%= dose.ingredient.name %>
+            <% if dose.description != "\n" %>
+            -
+            <% end %>
+            <%= dose.description %>
+            <%= link_to dose_path(dose), method: "delete" do %>
+            <i class="fas fa-trash-alt"></i>
+            <% end %>
+          </li>
+          <% end %>
+        </ul>
 
 
-<%= link_to("Add dose", new_cocktail_dose_path(@cocktail), class: "btn btn-yours") %>
-<%= link_to("Return", cocktails_path, class: "btn btn-yours") %>
+        <%= link_to("Add dose", new_cocktail_dose_path(@cocktail), class: "btn btn-yours") %>
 
-<%= image_tag(@cocktail.image, class:"drink-profile")  %>
+        <div class="return">
+          <%= link_to("Return", cocktails_path, class: "btn btn-yours") %>
+        </div>
+
+      </div>
+
+      <div class="pic">
+        <%= image_tag(@cocktail.image, class:"drink-profile")  %>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>

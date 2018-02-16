@@ -1,3 +1,26 @@
 // Place all the styles related to the cocktails controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.cocktail-info{
+  display:flex;
+}
+
+.drink-profile{
+  border-radius: 50%;
+  width: 200px;
+}
+
+.cocktail-info{
+  color: white;
+}
+
+.cocktail-info a .fas{
+  color: lightgrey;
+}
+
+.return{
+  display: absolute;
+  bottom: 10px;
+  left: 20px;
+}
