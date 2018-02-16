@@ -1,4 +1,11 @@
-<h1><%= @cocktail.name %></h1>
+<%= render "shared/navbar" %>
+
+
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path("banner.jpg") %>);">
+  <div class="banner-content">
+    <h1><%= @cocktail.name %></h1>
+  </div>
+</div>
 
 <p><%= @cocktail.instruction %></p>
 
@@ -9,8 +16,10 @@
 <% if dose.description != "\n" %>
 -
 <% end %>
-<em><%= dose.description %></em>
-
+<%= dose.description %>
+<%= link_to dose_path(dose), method: "delete" do %>
+  <i class="fas fa-trash-alt"></i>
+<% end %>
 </li>
 <% end %>
 </ul>
@@ -19,4 +28,4 @@
 <%= link_to("Add dose", new_cocktail_dose_path(@cocktail), class: "btn btn-yours") %>
 <%= link_to("Return", cocktails_path, class: "btn btn-yours") %>
 
-<%= image_tag(@cocktail.image)  %>
+<%= image_tag(@cocktail.image, class:"drink-profile")  %>
