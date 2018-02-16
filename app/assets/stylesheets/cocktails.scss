@@ -24,3 +24,12 @@
   bottom: 10px;
   left: 20px;
 }
+
+.wrapper-cocktails{
+  background: linear-gradient(90deg,#800000 3%, #000000 10%,  #000000 90%, #800000 97%);
+  height: calc(70vh - 70px)
+  // height: auto;
+  // min-height: 100%;
+  //   margin:     0px auto;
+  //   padding:    0px auto;
+}
