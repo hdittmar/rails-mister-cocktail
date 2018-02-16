@@ -1,2 +1,46 @@
-<h1>Cocktails#index</h1>
-<p>Find me in app/views/cocktails/index.html.erb</p>
+<%= render "shared/navbar" %>
+
+
+
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path("banner.jpg") %>);">
+  <div class="banner-content">
+    <h1>Find your Gin-spiration</h1>
+  </div>
+</div>
+
+
+<div class="wrapper-cards">
+  <div class="container cards">
+    <div class="row">
+      <% @cocktails.each do |cocktail| %>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cocktail.image %>);">
+          <div class="card-description">
+            <h2><%= cocktail.name %></h2>
+          </div>
+          <a class="card-link" href=<%=  cocktail_path(cocktail)%> ></a>
+        </div>
+      </div>
+      <% end %>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card" style="background: linear-gradient(#008080,#4C4C4C);">
+          <div class="card-description">
+            <h2><%= '<i class="fas fa-glass-martini"></i>'.html_safe+"Add a drink" %></h2>
+          </div>
+          <%= link_to( "", new_cocktail_path, class: "btn btn-yours card-link")%>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</div>
+
+<!-- <div class="wrapper bottom">
+  <div class="container text-center">
+    <%= link_to('<i class="fas fa-glass-martini"></i>'.html_safe+"Add a drink", new_cocktail_path, class: "btn btn-yours")%>
+  </div>
+</div> -->
+
+<%= render "shared/footer" %>
